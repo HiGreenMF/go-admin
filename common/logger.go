@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/go-admin/config"
+	"github.com/go-admin/constants"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -29,7 +30,7 @@ func InitLogger() {
 		LineEnding:    zapcore.DefaultLineEnding,
 		EncodeLevel:   zapcore.CapitalColorLevelEncoder,
 		EncodeTime: func(t time.Time, pae zapcore.PrimitiveArrayEncoder) {
-			pae.AppendString(t.Format("2006-01-02 15:04:05"))
+			pae.AppendString(t.Format(constants.DefaultTime))
 		},
 		EncodeDuration: zapcore.SecondsDurationEncoder,
 		EncodeCaller:   zapcore.ShortCallerEncoder,
