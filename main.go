@@ -6,4 +6,5 @@ import (
 
 func main() {
 	cmd.BeforeStart()
+	cmd.AfterStart()
 }

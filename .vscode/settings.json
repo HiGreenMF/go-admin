@@ -1,8 +1,13 @@
 {
     "cSpell.words": [
         "fsnotify",
+        "gorm",
+        "Infof",
         "mapstructure",
         "Syncer",
+        "tinyint",
+        "varchar",
+        "wxiangyashan",
         "zapcore"
     ]
 }

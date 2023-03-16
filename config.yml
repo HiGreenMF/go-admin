@@ -6,9 +6,9 @@ mysql:
   # 用户名
   username: root
   # 密码
-  password: 123456
+  password: 111111
   # 数据库名
-  database: go_admin
+  database: sys_go_admin
   # 主机地址
   host: localhost
   # 端口
@@ -18,7 +18,7 @@ mysql:
   # 是否打印日志
   log-mode: true
   # 数据库表前缀
-  table-prefix: ad
+  table-prefix: sys
   # 编码方式
   charset: utf8mb4
   # 字符集
@@ -35,5 +35,4 @@ logs:
   max-age: 7
   # 是否压缩
   gzip: false
-
 
