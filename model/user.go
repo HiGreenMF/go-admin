@@ -15,6 +15,6 @@ type User struct {
 	Department    string `gorm:"type:varchar(128);comment:'部门'" json:"department"`                   // 部门
 	Position      string `gorm:"type:varchar(128);comment:'职位'" json:"position"`                     //  职位
 	Status        uint   `gorm:"type:tinyint(1);default:1;comment:'状态:1在职, 2离职'" json:"status"`      // 状态
-	DepartmentId  string `gorm:"type:varchar(100);not null;comment:'部门id'" json:"departmentId"`      // 部门id                                               // 角色
+	DepartmentId  string `gorm:"type:varchar(100);not null;comment:'部门id'" json:"departmentId"`      // 部门id
 	OpenId        string `gorm:"type:varchar(100);not null;comment:'用户open_id'" json:"openId"`       // 用户open_id
 }
