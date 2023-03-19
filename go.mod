@@ -5,6 +5,8 @@ go 1.19
 require (
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/spf13/viper v1.15.0
+	gorm.io/driver/mysql v1.4.7
+	gorm.io/gorm v1.24.6
 )
 
 require (
@@ -13,8 +15,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	gorm.io/driver/mysql v1.4.7 // indirect
-	gorm.io/gorm v1.24.6 // indirect
 )
 
 require (

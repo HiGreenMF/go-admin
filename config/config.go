@@ -40,7 +40,7 @@ type config struct {
 func InitConfig() {
 	workDir, err := os.Getwd()
 	if err != nil {
-		panic(fmt.Errorf("fatal error read app directory: %s", err))
+		panic(fmt.Errorf("fatal error read app directory: %s", err).(any))
 	}
 	// 配置文件名称
 	viper.SetConfigFile("config.yml")
@@ -48,19 +48,19 @@ func InitConfig() {
 	viper.AddConfigPath(workDir)
 	// 读取配置信息
 	if err := viper.ReadInConfig(); err != nil {
-		panic(fmt.Errorf("fatal error read config: %s", err))
+		panic(fmt.Errorf("fatal error read config: %s", err).(any))
 	}
 
 	// 热更新配置
 	viper.WatchConfig()
 	viper.OnConfigChange(func(in fsnotify.Event) {
 		if err := viper.Unmarshal(Conf); err != nil {
-			panic(fmt.Errorf("fatal error hot update config: %s", err))
+			panic(fmt.Errorf("fatal error hot update config: %s", err).(any))
 		}
 	})
 
 	// 读取的配置信息保存至全局Conf中
 	if err := viper.Unmarshal(Conf); err != nil {
-		panic(fmt.Errorf("fatal error init config: %s", err))
+		panic(fmt.Errorf("fatal error init config: %s", err).(any))
 	}
 }
