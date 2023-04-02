@@ -32,9 +32,14 @@ type MysqlConfig struct {
 	Charset     string `mapstructure:"charset" json:"charset"`
 	Collation   string `mapstructure:"collation" json:"collation"`
 }
+
+type ServiceConfig struct {
+	Port string `mapstructure:"port" json:"port"`
+}
 type config struct {
-	Logs  *LogsConfig  `mapstructure:"logs" json:"logs"`
-	Mysql *MysqlConfig `mapstructure:"mysql" json:"mysql"`
+	Logs    *LogsConfig    `mapstructure:"logs" json:"logs"`
+	Mysql   *MysqlConfig   `mapstructure:"mysql" json:"mysql"`
+	Service *ServiceConfig `mapstructure:"service" json:"service"`
 }
 
 func InitConfig() {
@@ -61,6 +66,7 @@ func InitConfig() {
 
 	// 读取的配置信息保存至全局Conf中
 	if err := viper.Unmarshal(Conf); err != nil {
+		fmt.Print(Conf)
 		panic(fmt.Errorf("fatal error init config: %s", err).(any))
 	}
 }

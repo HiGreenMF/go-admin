@@ -1,0 +1,8 @@
+
+#!/bin/bash
+RUN_NAME=
+mkdir -p output/bin
+cp script/* output 2>/dev/null
+cp config.yml output/bin 2>/dev/null
+chmod +x output/bootstrap.sh
+go build -o output/bin/${RUN_NAME}

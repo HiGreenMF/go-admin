@@ -4,6 +4,7 @@ import "gorm.io/gorm"
 
 type User struct {
 	gorm.Model
+	ID            uint   `gorm:"primaryKey"`
 	UserName      string `gorm:"type:varchar(50);not null;unique;comment:'用户名'" json:"userName"`     // 用户名
 	NickName      string `gorm:"type:varchar(50);comment:'中文名'" json:"nickName"`                     // 昵称
 	Name          string `gorm:"type:varchar(50);comment:'中文名'" json:"name"`                         // 中文名
