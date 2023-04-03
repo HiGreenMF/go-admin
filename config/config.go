@@ -36,10 +36,16 @@ type MysqlConfig struct {
 type ServiceConfig struct {
 	Port string `mapstructure:"port" json:"port"`
 }
+
+type JWTConfig struct {
+	SecretKey string
+}
+
 type config struct {
 	Logs    *LogsConfig    `mapstructure:"logs" json:"logs"`
 	Mysql   *MysqlConfig   `mapstructure:"mysql" json:"mysql"`
 	Service *ServiceConfig `mapstructure:"service" json:"service"`
+	Jwt     *JWTConfig     `mapstructure:"jwt" json:"jwt"`
 }
 
 func InitConfig() {

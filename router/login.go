@@ -5,7 +5,7 @@ import (
 	"github.com/go-admin/controller"
 )
 
-func Ping(r *gin.Engine) {
+func Login(r *gin.Engine) {
+	r.POST("/login", controller.Login)
 
-	r.GET("/", controller.Ping)
 }

@@ -36,3 +36,6 @@ logs:
   # 是否压缩
   gzip: false
 
+jwt:
+ # jwt密钥
+ secretkey: 'domain'
