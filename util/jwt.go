@@ -53,7 +53,7 @@ func ParseToken(tokenString string) (*JWTClaims, error) {
 
 // 验证JWT令牌
 func ValidateToken(tokenString string) (bool, error) {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (any, error) {
 		// 验证JWT令牌的签名方法
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
