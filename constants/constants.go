@@ -5,8 +5,6 @@ const (
 )
 
 const (
-	//AppID     = "cli_a4a6978ae6f91013"             // 自建应用 app_id
-	//AppSecret = "VP5Wvr64fcf0GAYJUaRIrfLTZhgtXuhI" // 自建应用 app_secret,
-	AppID     = "cli_asersr"             // 自建应用 app_id
-	AppSecret = "cli_asersr" // 自建应用 app_secret,
+	AppID     = "cli_a4a6978ae6f91013"             // 自建应用 app_id
+	AppSecret = "VP5Wvr64fcf0GAYJUaRIrfLTZhgtXuhI" // 自建应用 app_secret,
 )
