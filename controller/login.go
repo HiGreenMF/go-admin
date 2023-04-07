@@ -21,11 +21,6 @@ type TokenInfo struct {
 	TenantAccessToken string `json:"-"`
 }
 
-type AppAccessTokenReqBody struct {
-	AppId     string `json:"app_id"`
-	AppSecret string `json:"app_secret"`
-}
-
 func Login(ctx *gin.Context) {
 
 	// 创建 Client
@@ -57,7 +52,7 @@ func Login(ctx *gin.Context) {
 	}
 	// 读取Body
 	var tokenInfo TokenInfo
-	// 	err = json.Unmarshal(resp.ApiResp.RawBody, &token)
+	// 	err = json.Unmarshal(resp.ApiResp.RawBody, &tokenInfo)
 
 	err = resp.ApiResp.JSONUnmarshalBody(&tokenInfo, &larkcore.Config{
 		Serializable: new(larkcore.DefaultSerialization),
