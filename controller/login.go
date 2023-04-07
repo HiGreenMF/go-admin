@@ -2,7 +2,6 @@ package controller
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 
 	"github.com/gin-gonic/gin"
@@ -10,6 +9,7 @@ import (
 	"github.com/go-admin/constants"
 	"github.com/go-admin/util"
 	lark "github.com/larksuite/oapi-sdk-go/v3"
+	larkcore "github.com/larksuite/oapi-sdk-go/v3/core"
 	larkauth "github.com/larksuite/oapi-sdk-go/v3/service/auth/v3"
 )
 
@@ -57,10 +57,10 @@ func Login(ctx *gin.Context) {
 	}
 	// 读取Body
 	var tokenInfo TokenInfo
-// 	err = json.Unmarshal(resp.ApiResp.RawBody, &token)
+	// 	err = json.Unmarshal(resp.ApiResp.RawBody, &token)
 
 	err = resp.ApiResp.JSONUnmarshalBody(&tokenInfo, &larkcore.Config{
-		Serializable: new(larkcore.DefaultSerialization),	
+		Serializable: new(larkcore.DefaultSerialization),
 	})
 	if err != nil {
 		common.Log.Error(err)
