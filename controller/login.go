@@ -56,18 +56,20 @@ func Login(ctx *gin.Context) {
 		return
 	}
 	// 读取Body
-	var Token *TokenInfo
-	err = json.Unmarshal(resp.ApiResp.RawBody, &Token)
+	var tokenInfo TokenInfo
+// 	err = json.Unmarshal(resp.ApiResp.RawBody, &token)
 
-	// resp.ApiResp.JSONUnmarshalBody(&Token, &larkcore.Config{})
+	err = resp.ApiResp.JSONUnmarshalBody(&tokenInfo, &larkcore.Config{
+		Serializable: new(larkcore.DefaultSerialization),	
+	})
 	if err != nil {
 		common.Log.Error(err)
 		response.ResponseBadRequest(util.Error, nil, err.Error())
 		return
 	}
-	tokenStr, _ := util.CreateToken(Token.AppAccessToken)
+	tokenStr, _ := util.CreateToken(tokenInfo.AppAccessToken)
 	// 生成jwtToken
 	ctx.Header("Authorization", fmt.Sprintf("Bearer %v", tokenStr))
-	response.ResponseOk(resp.Code, Token, resp.Msg)
+	response.ResponseOk(tokenInfo.Code, tokenInfo, tokenInfo.Msg)
 
 }
